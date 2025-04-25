@@ -1,0 +1,91 @@
+<div class="sample-container">
+    <po-loading-overlay *ngIf="loadTela===true" [p-screen-lock]="true"></po-loading-overlay>
+  </div>
+
+<div class="selecao">
+    <div style="min-width: 450px; margin-left: 40px;">
+        <po-combo [ngModel]="codEstabel" (ngModelChange)="codEstabel = $event" 
+            [p-options]="listaEstabelecimentos"  p-icon="bi bi-pin-map"
+            [p-placeholder]="placeHolderEstabelecimento" p-clean="true">
+            <ng-template p-combo-option-template let-option>
+                <div class="po-row">
+                    <po-icon class="po-sm-2 po-md-3 po-lg-1" p-size="sm" p-icon="bi bi-pin-map"></po-icon>
+                    <div class="po-sm-10 po-md-9 po-lg-11">
+                        <div class="po-font-text-large-bold">{{ option.label }}</div>
+                        <div class="po-font-text-smaller">Filial: {{ option.codFilial }}</div>
+                    </div>
+                </div>
+            </ng-template>
+        </po-combo>
+    </div>
+    <div><po-button p-icon="bi bi-check2" (p-click)="onListar()" ></po-button></div>
+    <div style="display: flex; justify-content: end; flex-grow: 1; margin-right: 40px;"><po-button p-tooltip="Reprocessar Processos com Erro" p-icon="bi bi-arrow-clockwise" (p-click)="onReprocessarErros()" p-danger="true" ></po-button></div>
+</div>
+<po-table [p-items]="lista" 
+          [p-striped]="true" 
+          [p-height]="alturaGrid"
+          p-container="true"
+          [p-columns]="colunas" 
+          [p-sort]="true"
+          [p-hide-table-search]="false" 
+          [p-hide-columns-manager]="true">
+          <ng-template p-table-cell-template let-column="column" let-row="row">
+           
+            @if(column.property === 'situacao'){
+                @if(row['situacao'] === 'E'){
+                    <div class='po-font-text' style="display: flex;justify-content: center; align-items: first baseline;color:white; background-color: var(--color-09);border-radius: 50%; padding: 1px;text-align: center">
+                        <div> {{ row['situacao']}}</div>
+                        <div class="po-font-text-smaller">{{ row['fase']}}</div>  
+                    </div>
+                }
+                @else if(row['situacao'] === 'S'){ 
+                    <div class='po-font-text' style="display: flex;justify-content: center; color:white; background-color: var(--color-10);border-radius: 50%; padding: 1px;text-align: center">
+                        {{ row['situacao']}}
+                    </div>
+                }
+            }
+            @if(column.property === 'num-ped-exec'){
+               
+                <div style="display: flex; align-items: center; gap:5px;padding: 1px;border-radius: 4px;">
+                    @if(row['desc-ped-exec'] === 'Executando Pedido'){
+                    <div class="po-font-text-smaller" style=" color:white;background-color: var(--color-10);border: 2px solid var(--color-10); border-radius: 4px; min-width: 30px; text-align: center;padding:0 2px">{{row['desc-ped-exec']}}<div class='loading po-font-text-smaller'>...</div></div>
+                    }
+                    @else if(row['desc-ped-exec'] === 'Execução com Sucesso'){
+                        <div class="po-font-text-smaller" style="border: 2px solid var(--color-10); border-radius: 4px; min-width: 30px; text-align: center;padding:0 2px">{{row['desc-ped-exec']}}</div>
+                        }
+                    @else if(row['desc-ped-exec'] === 'Tempo de inatividade excedido'){
+                        <div class="po-font-text-smaller" style="border: 2px solid var(--color-07); border-radius: 4px; min-width: 30px; text-align: center;padding:0 2px">{{row['desc-ped-exec']}}</div>
+                        }
+                    @else{
+                        <div class="po-font-text-smaller" style="border: 2px solid gray; border-radius: 4px; min-width: 30px; text-align: center;padding:0 2px">{{row['desc-ped-exec']}}</div>  
+                    }
+                    <div>{{row['num-ped-exec']}}</div>
+                </div>
+            } 
+            @if(column.property === 'opcoes'){
+                <div class="menuGrid">
+                    <div><button class="btn"  (click)="NotasFiscais(row)"><p><i class="bi bi-archive"></i> Notas Fiscais</p></button></div>
+                </div>
+            }
+          </ng-template>
+</po-table>
+<div style="display: flex; justify-content: center;">
+<div class="po-font-text-small" style="display: flex; justify-content: center; align-items: center;gap:20px;margin-top: 10px;border: 1px solid transparent; border-radius: 4px; width:80%">
+    <div style="display: flex; align-items: center; gap:5px;padding: 5px; min-width: 150px;">
+        <div class="po-font-text-smaller" class="po-font-text-smaller" style="color:white; background-color: var(--color-09);border: 1px solid var(--color-09); border-radius: 4px; padding: 1px;min-width: 30px; text-align: center;box-shadow: 2px 5px 5px lightgray;">{{ this.labelContador[0]}}</div>
+        <div style="color:var(--color-09)">Entradas</div>
+    </div> 
+
+    <div style="display: flex; align-items: center; gap:5px;padding: 5px;border-radius: 4px; min-width: 150px;">
+        <div class="po-font-text-smaller" style="color:white; background-color: var(--color-10);border: 1px solid var(--color-10); border-radius: 4px; padding: 1px;min-width: 30px; text-align: center;box-shadow: 2px 5px 5px lightgray;">{{ this.labelContador[1]}}</div>
+        <div style="color:var(--color-10)">Saídas</div>
+    </div>
+</div>
+</div>
+
+
+
+
+        
+
+          

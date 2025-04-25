@@ -1,0 +1,24 @@
+<div class="po-wrapper">
+  <po-menu [p-menus]="menus" [p-automatic-toggle]="false" [p-collapsed]="false" #menuLateral>
+    <div *p-menu-header-template style="background: steelblue; border-radius: 5px;">
+      <div style="min-height: 50px;">
+        <p style="color: white; text-align: center;padding-top: 15px"><b>EMPRÉSTIMOS</b></p>
+        <hr>
+        <div *ngIf="estabInfo !== undefined" class="painelProcess">
+          <p><i class="bi bi-pin-map"></i>&nbsp;{{estabInfo}}</p>
+          <p><i class="bi bi-box-arrow-up-right"></i>&nbsp;{{tecnicoInfo}}</p>
+          <p><i class="bi bi-box-arrow-in-down-right"></i>&nbsp;{{tecnicoInfoOut}}</p>
+          <p *ngIf="processoInfo !== ''"><i class="bi bi-clipboard-data"></i>&nbsp;{{processoInfo}}</p>
+          <!-- <p class="infoProcess" *ngIf="processoInfo !== ''"><i>{{processoSituacao}}</i></p> -->
+        </div>
+       
+      </div>
+    </div>
+   
+  </po-menu>
+
+<po-toolbar p-title={{tituloTela}}></po-toolbar>  
+<po-page-default>
+  <router-outlet></router-outlet>
+</po-page-default>
+</div>

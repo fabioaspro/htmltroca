@@ -1,0 +1,163 @@
+<po-loading-overlay *ngIf="loadTela===true" [p-screen-lock]="true"></po-loading-overlay>
+
+<div class="selecao">
+  <div class="cabec">
+    
+        <po-button p-icon="bi bi-calendar-range" (p-click)="this.telaSelecao?.open()" p-tooltip="Seleção de Dados"></po-button>
+        <po-button p-icon="bi bi-check2-circle" p-label="Buscar Dados" (p-click)="this.Selecionar()" ></po-button>
+        <po-button p-icon="bi bi-download" p-label="Download Planilha" (p-click)="this.GerarExcel()" p-kind="primary" ></po-button>
+  </div>
+</div>
+
+<div class="grid">
+  <po-table #grid2  [p-items]="lista"
+                   [p-columns]="colunas" 
+                   [p-striped]="true" 
+                   p-sort="true" 
+                   [p-hide-table-search]="false" 
+                   [p-hide-columns-manager]="true" 
+                   p-container="true" 
+                   [p-sort]="true"
+                   [p-height]="alturaGrid" >
+                   <ng-template p-table-cell-template let-column="column" let-row="row">
+           
+                    @if(column.property === 'opcoes'){
+                        <div class="menuGrid">
+                            <div><button class="btn"  (click)="Detalhe(row)"><p><i class="bi bi-archive"></i> Notas Fiscais</p></button></div>
+                        </div>
+                    }
+                  </ng-template>
+          
+  </po-table>
+
+  
+</div>
+
+<po-modal #telaSelecao p-title="Parâmetros de Seleção"
+                              p-size="auto" 
+                              p-click-out="false" 
+                              [p-hide-close]="true"
+                              [p-primary-action]="acaoSelecionar" 
+                              [p-secondary-action]="acaoCancelarSelecao">
+
+
+      <form #formSelecao="ngForm">
+        <div class="po-row">
+            <po-datepicker
+            class="po-md-6"
+            name="dtIni"
+            [(ngModel)]="dtIni"
+            p-clean
+            p-format="dd/mm/yyyy"
+            p-label="Data Inicial"
+            p-required
+            [p-max-date]="dtIni"
+            >
+            </po-datepicker>
+
+            <po-datepicker
+            class="po-md-6"
+            name="dtFim"
+            [(ngModel)]="dtFim"
+            p-clean
+            p-format="dd/mm/yyyy"
+            p-label="Data Final"
+            p-required
+            [p-min-date]="dtFim"
+            >
+            </po-datepicker>
+        </div>
+        <div class="po-row">
+          <po-input
+          class="po-md-6"
+          name="estabIni"
+          [(ngModel)]="estabIni"
+          p-placeholder="Estab Inicial"
+          p-label="Estab Inicial"
+          p-required
+          [p-maxlength]="3"
+          >
+          </po-input>
+
+          <po-input
+          class="po-md-6"
+          name="estabFim"
+          [(ngModel)]="estabFim"
+          p-label="Estab Final"
+          p-placeholder="Estab Final"
+          p-required
+          [p-maxlength]="3"
+          >
+          </po-input>
+      </div>
+
+        <div class="po-row">
+            <po-input
+            class="po-md-6"
+            name="tecIni"
+            [(ngModel)]="tecIni"
+            p-placeholder="Técnico Inicial"
+            p-label="Técnico Origem Inicial"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+
+            <po-input
+            class="po-md-6"
+            name="tecFim"
+            [(ngModel)]="tecFim"
+            p-label="Técnico Origem Final"
+            p-placeholder="Técnico Final"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-input
+            class="po-md-6"
+            name="tecDestIni"
+            [(ngModel)]="tecDestIni"
+            p-label="Técnico Destino Inicial"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+
+            <po-input
+            class="po-md-6"
+            name="tecDestFim"
+            [(ngModel)]="tecDestFim"
+            p-placeholder="Técnico Final"
+            p-label="Técnico Destino Final"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+          <po-input
+          class="po-md-6"
+          name="itCodigoIni"
+          [(ngModel)]="itCodigoIni"
+          p-label="Item Inicial"
+          p-required
+          [p-maxlength]="16"
+          >
+          </po-input>
+
+          <po-input
+          class="po-md-6"
+          name="itCodigoFim"
+          [(ngModel)]="itCodigoFim"
+          p-label="Item Final"
+          p-required
+          [p-maxlength]="16"
+          >
+          </po-input>
+      </div>
+        </form>
+  </po-modal>

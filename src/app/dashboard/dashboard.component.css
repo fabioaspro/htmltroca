@@ -1,0 +1,55 @@
+.efetivacaoInfo{
+  display: flex; 
+  justify-content: end; 
+  align-items: center; 
+  margin-bottom: 10px; 
+  
+  background-color: whitesmoke;
+}
+
+.efetivacaoInfo > div{
+  margin-right: 40px;
+}
+
+.rpwInfo {
+  display: none;
+  color: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 5px;
+  margin-top: 5px;
+  max-width: 520px;
+
+  :is(h4) {
+    color: white;
+  }
+}
+
+.rpwInfo.ok {
+  background: var(--color-10);
+}
+
+.rpwInfo.erro {
+  background: var(--color-07);
+}
+
+.rpwInfo.info {
+  background: var(--color-08);
+}
+
+.icone {
+  margin-right: 10px;
+  font-size: 24px;
+  float: left;
+  text-align: center;
+  
+  :is(i) {
+    color: white;
+  }
+
+}
+.formatoTexto{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px; 
+  font-variant-numeric: tabular-nums;
+}

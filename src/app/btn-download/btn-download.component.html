@@ -1,0 +1,11 @@
+<a class="face-button" [href]="urlSpool + nomeArquivo" target="_blank"  [download]="this.nomeArquivo" >
+    <div class="face-primary">
+      <i class="bi bi-file-earmark-text"></i>
+      <span *ngIf="mostrarNomeArquivo" style=" margin-left: 6px;">{{this.nomeArquivo}}</span>
+    </div>
+    <div class="face-secondary">
+      <i class="bi bi-download"></i>
+      <span *ngIf="mostrarNomeArquivo" style=" margin-left: 6px;">Baixar Arquivo</span>
+    </div>
+</a>
+

@@ -1,0 +1,24 @@
+.cabec{
+    display: flex; 
+    gap:5px;
+    justify-content:start; 
+    align-items: center; 
+    margin-left: 20px;
+    
+}
+
+.selecao{
+    
+    display: flex; 
+    align-items:center; 
+    gap:10px;
+    justify-content: start; 
+    justify-items: center;
+    border-radius: 3px; 
+    border: 1px solid #cccc; 
+    height: 70px; 
+    background: #E5E5E5 ;
+    box-shadow: 2px 5px 5px lightgray;
+   
+    
+}

@@ -1,0 +1,29 @@
+.face-button {
+    height: 44px;
+    display: inline-block;
+    border: 2px solid lightcoral;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    color: lightcoral;
+    overflow: hidden;
+    border-radius: 4px;
+    
+    .face-primary,
+    .face-secondary {
+      display: block;
+      padding: 0 16px;
+      line-height: 44px;
+      transition: margin .4s;
+    }
+    
+    .face-primary {
+      background-color: lightcoral;
+      color: #fff;
+    }
+    
+    &:hover .face-primary {
+      margin-top: -44px;
+    }
+  }
