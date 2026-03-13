@@ -44,7 +44,12 @@ export class ListComponent {
   private router = inject(Router)
   private formB = inject(FormBuilder);
 
+<<<<<<< HEAD
   //Variaveis 
+=======
+  //Variaveis
+  loadTipo:string = ''
+>>>>>>> 62d2cd3 (Backup13032026)
   labelLoadTela:string = ''
   loadTecnico:string=''
   loadTela: boolean = false
@@ -56,7 +61,13 @@ export class ListComponent {
   lBotao:boolean = false
   objSelecionado:any
   temTroca:boolean=false
+<<<<<<< HEAD
 
+=======
+  indTipo:string=''
+  versao:string=''
+  
+>>>>>>> 62d2cd3 (Backup13032026)
   //lista: any;
   tipoAcao:string=''
   qtEmprestimos:number=0
@@ -101,11 +112,21 @@ export class ListComponent {
 
   ngOnInit(): void {
 
+<<<<<<< HEAD
     this.srvTotvs.EmitirParametros({ tituloTela: 'EMPRÉSTIMOS - MOVIMENTAÇÃO'});
 
     this.loadTela=true
     this.colunas = this.srvTotvs.obterColunas()
     
+=======
+    this.versao = environment.versao
+    this.srvTotvs.EmitirParametros({ tituloTela: this.versao + ' - EMPRÉSTIMOS - MOVIMENTAÇÃO'});
+
+    this.loadTela = true
+    this.colunas  = this.srvTotvs.obterColunas()
+    this.indTipo  = "Extra-Kit"
+
+>>>>>>> 62d2cd3 (Backup13032026)
     //Carregar combo de estabelecimentos
     this.srvTotvs.ObterEstabelecimentos().subscribe({
       next: (response: any) => {
@@ -143,6 +164,11 @@ export class ListComponent {
     this.loadTela=true
     let param:any={codEstabel:this.codEstabel, codTecnico:this.codTecnicoOri}
     
+<<<<<<< HEAD
+=======
+    this.indTipo  = "Extra-Kit"
+
+>>>>>>> 62d2cd3 (Backup13032026)
     //Chamar servico
     this.srvTotvs.ObterSaldoTerceiro(param).subscribe({
       next: (response: any) => {
@@ -163,7 +189,11 @@ export class ListComponent {
       },
       error: (e) => { this.loadTela=false},
     });
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 62d2cd3 (Backup13032026)
   }
 
   onExecutar(){
@@ -175,6 +205,14 @@ export class ListComponent {
       return
     } 
 
+<<<<<<< HEAD
+=======
+    if (this.indTipo === undefined){
+      this.srvNotification.error('Selecione o Tipo de Nota Gerada (Extra-Kit ou Kit) !')
+      return
+    }
+
+>>>>>>> 62d2cd3 (Backup13032026)
     if (!this.temTroca) {
       this.srvNotification.error('Selecione ao menos um item para a troca !')
       return
@@ -195,13 +233,23 @@ export class ListComponent {
       literals: { cancel: 'Não', confirm: 'Sim' },
       confirm: () => {
         this.loadTela = true;
+<<<<<<< HEAD
         let params: any = { cabec:{"cod-estabel": this.codEstabel, "cod-tec-ori":this.codTecnicoOri, "cod-tec-dest": this.codTecnicoDest}, items: this.listaDados.filter(o=>o['qt-troca']!==null)};
+=======
+        let params: any = { cabec:{"cod-estabel": this.codEstabel, "cod-tec-ori":this.codTecnicoOri, "cod-tec-dest": this.codTecnicoDest, "indTipo": this.indTipo}, items: this.listaDados.filter(o=>o['qt-troca']!==null)};
+>>>>>>> 62d2cd3 (Backup13032026)
          this.srvTotvs.ExecutarEmprestimo(params).subscribe({
           next: (response: any) => {
             this.loadTela = false
             this.srvNotification.success('Execução do empréstimo realizada com sucesso ! Processo RPW: ' + response.rpw)
             this.temTroca = false
+<<<<<<< HEAD
             this.onSelecionar()
+=======
+            //FAS - Para não dar msg de erro
+            this.listaDados=[]
+            //this.onSelecionar()
+>>>>>>> 62d2cd3 (Backup13032026)
           },
           error: (e) => {
             this.loadTela = false;

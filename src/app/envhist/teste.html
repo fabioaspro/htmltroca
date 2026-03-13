@@ -1,0 +1,164 @@
+<po-loading-overlay *ngIf="loadTela===true" [p-screen-lock]="true"></po-loading-overlay>
+
+<div class="selecao">
+  <div class="cabec">
+    
+    <po-datepicker  name="dtIni" [(ngModel)]="dtIni" p-clean p-format="dd/mm/yyyy"  p-label="Período de Corte"  p-required [p-max-date]="dtIni" > </po-datepicker>
+    <po-button style="margin-top: 23px" p-icon="bi bi-collection-play" p-label="Gerar Dados no RPW" (p-click)="this.SelecionarRPW()" ></po-button>
+   
+  </div>
+</div>
+
+<div class="grid">
+ 
+<!--
+<po-card>
+  <po-row>
+    <po-column> --> 
+      <h4 style="display: flex; justify-content: space-between; align-items: center;">
+        Dados Enviados
+        <po-button
+          p-icon="po-icon-refresh"
+          p-type="default"
+          p-label="Atualizar"
+          (p-click)="atualizarDadosEnviados()">
+        </po-button>
+      </h4>
+  <!--  </po-column>
+  </po-row>
+
+  <po-progress [p-value]="percEnvioHist" p-label="'Progresso: ' + percEnvioHist + '%'">
+  </po-progress>
+</po-card>--> 
+
+  <po-progress [p-value]="percEnvioHist" p-label="'Progresso: ' + percEnvioHist + '%'"> </po-progress>
+</div>
+
+<po-modal #telaSelecao p-title="Parâmetros de Seleção"
+                              p-size="auto" 
+                              p-click-out="false" 
+                              [p-hide-close]="true"
+                              [p-primary-action]="acaoSelecionar" 
+                              [p-secondary-action]="acaoCancelarSelecao">
+
+
+      <form #formSelecao="ngForm">
+        <div class="po-row">
+            <po-datepicker
+            class="po-md-6"
+            name="dtIni"
+            [(ngModel)]="dtIni"
+            p-clean
+            p-format="dd/mm/yyyy"
+            p-label="Data Inicial"
+            p-required
+            [p-max-date]="dtIni"
+            >
+            </po-datepicker>
+
+            <po-datepicker
+            class="po-md-6"
+            name="dtFim"
+            [(ngModel)]="dtFim"
+            p-clean
+            p-format="dd/mm/yyyy"
+            p-label="Data Final"
+            p-required
+            [p-min-date]="dtFim"
+            >
+            </po-datepicker>
+        </div>
+        <div class="po-row">
+          <po-input
+          class="po-md-6"
+          name="estabIni"
+          [(ngModel)]="estabIni"
+          p-placeholder="Estab Inicial"
+          p-label="Estab Inicial"
+          p-required
+          [p-maxlength]="3"
+          >
+          </po-input>
+
+          <po-input
+          class="po-md-6"
+          name="estabFim"
+          [(ngModel)]="estabFim"
+          p-label="Estab Final"
+          p-placeholder="Estab Final"
+          p-required
+          [p-maxlength]="3"
+          >
+          </po-input>
+      </div>
+
+        <div class="po-row">
+            <po-input
+            class="po-md-6"
+            name="tecIni"
+            [(ngModel)]="tecIni"
+            p-placeholder="Técnico Inicial"
+            p-label="Técnico Origem Inicial"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+
+            <po-input
+            class="po-md-6"
+            name="tecFim"
+            [(ngModel)]="tecFim"
+            p-label="Técnico Origem Final"
+            p-placeholder="Técnico Final"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+            <po-input
+            class="po-md-6"
+            name="tecDestIni"
+            [(ngModel)]="tecDestIni"
+            p-label="Técnico Destino Inicial"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+
+            <po-input
+            class="po-md-6"
+            name="tecDestFim"
+            [(ngModel)]="tecDestFim"
+            p-placeholder="Técnico Final"
+            p-label="Técnico Destino Final"
+            p-required
+            [p-maxlength]="6"
+            >
+            </po-input>
+        </div>
+
+        <div class="po-row">
+          <po-input
+          class="po-md-6"
+          name="itCodigoIni"
+          [(ngModel)]="itCodigoIni"
+          p-label="Item Inicial"
+          p-required
+          [p-maxlength]="16"
+          >
+          </po-input>
+
+          <po-input
+          class="po-md-6"
+          name="itCodigoFim"
+          [(ngModel)]="itCodigoFim"
+          p-label="Item Final"
+          p-required
+          [p-maxlength]="16"
+          >
+          </po-input>
+      </div>
+        </form>
+  </po-modal>

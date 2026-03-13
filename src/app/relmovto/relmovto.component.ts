@@ -43,7 +43,10 @@ export class RelmovtoComponent {
   private srvNotification = inject(PoNotificationService);
   private router = inject(Router)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62d2cd3 (Backup13032026)
   readonly acaoSelecionar: PoModalAction = {
     label: 'Salvar',
     action: () => {
@@ -78,13 +81,22 @@ export class RelmovtoComponent {
   listaDados!:any[]
   loadTela:boolean=false
 
+<<<<<<< HEAD
+=======
+  versao:string=''
+>>>>>>> 62d2cd3 (Backup13032026)
 
   ngOnInit(): void {
 
     //Colunas grids
     this.colunas = this.srvTotvs.obterColunasRelatorio();
+<<<<<<< HEAD
 
     this.srvTotvs.EmitirParametros({ tituloTela: 'EMPRÉSTIMOS - RELATÓRIO MOVIMENTAÇÕES'});
+=======
+    this.versao = environment.versao
+    this.srvTotvs.EmitirParametros({ tituloTela: this.versao + ' - EMPRÉSTIMOS - RELATÓRIO MOVIMENTAÇÕES'});
+>>>>>>> 62d2cd3 (Backup13032026)
   }
 
   Detalhe(obj:any){

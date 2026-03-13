@@ -56,6 +56,29 @@ export class AppComponent {
       shortLabel: 'FT0518',
       action: () => this.AbrirProgramaTotvs('ftp/ft0518.w'),
     },
+<<<<<<< HEAD
+=======
+    {
+      label: 'ESAA007',
+      icon: 'bi bi-search',
+      shortLabel: 'ESAA007',
+      action: () => this.AbrirProgramaTotvs('esp/esaa007.w'),
+    },
+    {
+      label: 'ESAA072',
+      icon: 'bi bi-clipboard2',
+      shortLabel: 'ESAA072',
+      action: () => this.AbrirProgramaTotvs('esp/esaa072.w'),
+    },
+    {
+      label: 'Envio para Histórico',
+      icon: 'bi bi-database-up',
+      link: '/envhist',
+      shortLabel: 'Envio para Histórico',
+    },
+
+    
+>>>>>>> 62d2cd3 (Backup13032026)
   ];
 
   //Variaveis 

@@ -1,0 +1,52 @@
+<po-loading-overlay *ngIf="loadTela===true" [p-text]="labelLoadTela" [p-screen-lock]="true"></po-loading-overlay>
+
+<div class="hero">
+  <div class="homepage">
+
+    <po-widget class="po-md-12" [p-height]="alturaStepperSel">
+      <div class='po-row' style='margin-bottom: 5px;'></div>
+
+      <!-- Descritivo -->
+      <po-widget class="po-md-12" style="margin-top: 5px;">
+        <div class="selecao">
+          <div class="cabec">
+            
+            <po-info p-label="Objetivo" p-value="Envio de dados das tabelas [pr-troca] para histórico."></po-info>
+
+          </div>
+        </div>
+      </po-widget>
+
+      <!-- Botões de ação -->
+      <po-widget class="po-md-12" style="margin-top: 5px;">
+        <div class="selecao">
+          <div class="cabec">
+            <form #formSelecao="ngForm">
+              <po-datepicker  name="dtCorte" [(ngModel)]="dtCorte" [disabled]="lDisabled" p-clean p-format="dd/mm/yyyy"  p-label="Período de Corte"  p-required [p-max-date]="dtCorte" > </po-datepicker>
+            </form>
+            <po-button style="margin-top: 23px" p-icon="bi bi-collection-play" p-label="Gerar Dados no RPW" (p-click)="this.SelecionarRPW()" ></po-button>
+          
+          </div>
+        </div>
+      </po-widget>
+
+      <!-- Progresso e botão de envio -->
+      <po-widget class="po-md-12" style="margin-top: 5px;">
+        
+        <div class="frame-grid-resumo" style="margin: 10px;">
+
+          <po-progress class="po-md-12" p-text="Progresso do Envio [Status: {{status}} - Qtd. de Registros no Período: {{HistQtdReg}}]" [p-value]="percEnvioHist" [p-show-percentage]="true"></po-progress>
+          
+          <div class="po-row" style="margin-top: 10px;">
+            <po-button p-label="Atualizar Progresso" [p-disabled]="buttonDisabled" (p-click)="ngOnAttEnvHist()"></po-button>
+          </div>
+
+        </div>
+
+      </po-widget>
+
+    </po-widget>
+
+  </div>
+
+</div>

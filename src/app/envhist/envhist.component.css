@@ -1,0 +1,35 @@
+.cabec{
+    display: flex; 
+    gap:8px;
+    justify-content:start; 
+    align-items: center; 
+    margin-left: 20px;
+    
+}
+
+.selecao{
+    
+    display: flex; 
+    align-items:center; 
+    gap:10px;
+    justify-content: start; 
+    justify-items: center;
+    border-radius: 3px; 
+    border: 1px solid #cccc; 
+    height: 100px; 
+    background: #E5E5E5 ;
+    box-shadow: 2px 5px 5px lightgray;
+   
+    
+}
+.grid{
+    border: 1px solid lightgray; 
+    border-radius: 4px; 
+    padding: 5px; 
+    margin-top: 5px;
+}
+
+
+::ng-deep po-info .po-info-label {
+  font-size: 20px; /* ou o tamanho desejado */
+}

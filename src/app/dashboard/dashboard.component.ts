@@ -264,7 +264,11 @@ LogarUsuario() {
   
 verificarNotas() {
 
+<<<<<<< HEAD
   console.log("Verificar Notas")
+=======
+  //console.log("Verificar Notas")
+>>>>>>> 62d2cd3 (Backup13032026)
     
     if (!this.usuarioLogado) {
       this.loginModal?.open();
@@ -331,7 +335,11 @@ verificarNotas() {
   }
 
   onReprocessarNotas() {
+<<<<<<< HEAD
     console.log(this.cRPW)
+=======
+    //console.log(this.cRPW)
+>>>>>>> 62d2cd3 (Backup13032026)
 
     if (this.cRPW.toUpperCase().includes('EXECUTANDO / EXECUTANDO PEDIDO') || this.cRPW.toUpperCase().includes('NÃO EXECUTADO')){
       this.srvNotification.error('Não é permitido o reprocessamento com RPW em execução !')
