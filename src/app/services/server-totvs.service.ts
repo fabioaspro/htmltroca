@@ -16,13 +16,9 @@ const headersTotvs = new HttpHeaders(environment.totvs_header)
 })
 export class ServerTotvsService {
   private reg!:any;
-<<<<<<< HEAD
-  _url = environment.totvs_url;
-=======
   _url      = environment.totvs_url
   _urlGeral = environment.totvs_url_geral
 
->>>>>>> 62d2cd3 (Backup13032026)
   usuarioSelecionado: WritableSignal<Usuario> = signal({
     codUsuario: '',
     codEstabelecimento: '',
@@ -458,20 +454,6 @@ export class ServerTotvsService {
   }
 
   public ObterSaldoTerceiro(params?: any){
-<<<<<<< HEAD
-    return this.http.get(`${this._url}/ObterSaldoTerceiro`, {params:params, headers:headersTotvs})
-                   .pipe(take(1));
-  }
-
-  public ExecutarEmprestimo(params?: any){
-    return this.http.post(`${this._url}/ExecutarEmprestimo`, params, { headers:headersTotvs})
-                   .pipe(take(1));
-  }
-
-  public ObterDadosRelatorio(params?: any){
-    return this.http.post(`${this._url}/ObterDadosRelatorio`, params, { headers:headersTotvs})
-                   .pipe(take(1));
-=======
     return this.http.get(`${this._url}/ObterSaldoTerceiro`, {params:params, headers:headersTotvs}).pipe(take(1));
   }
 
@@ -481,7 +463,6 @@ export class ServerTotvsService {
 
   public ObterDadosRelatorio(params?: any){
     return this.http.post(`${this._url}/ObterDadosRelatorio`, params, { headers:headersTotvs}).pipe(take(1));
->>>>>>> 62d2cd3 (Backup13032026)
   }
 
    //Parametros do Estabelecimento
@@ -560,11 +541,6 @@ export class ServerTotvsService {
       .pipe(take(1));
   }
 
-<<<<<<< HEAD
-  public ObterCadastro(params?: any){
-    return this.http.get(`${this._url}/ObterCadastro`, {params:params, headers:headersTotvs})
-                   .pipe(take(1));
-=======
   //--- Atualizar Envio para Histórico
   public onAttEnvHist(params?: any){
     return this.http.get(`${this._urlGeral}/onAttEnvHist`, {params:params, headers:headersTotvs}).pipe(take(1));
@@ -580,7 +556,6 @@ export class ServerTotvsService {
 
   public ObterCadastro(params?: any){
     return this.http.get(`${this._url}/ObterCadastro`, {params:params, headers:headersTotvs}).pipe(take(1));
->>>>>>> 62d2cd3 (Backup13032026)
   }
 
   //---------------------- Programas DDK

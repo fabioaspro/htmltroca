@@ -56,8 +56,6 @@ export class AppComponent {
       shortLabel: 'FT0518',
       action: () => this.AbrirProgramaTotvs('ftp/ft0518.w'),
     },
-<<<<<<< HEAD
-=======
     {
       label: 'ESAA007',
       icon: 'bi bi-search',
@@ -78,7 +76,6 @@ export class AppComponent {
     },
 
     
->>>>>>> 62d2cd3 (Backup13032026)
   ];
 
   //Variaveis 

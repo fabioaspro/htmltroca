@@ -5,10 +5,7 @@ import { Usuario } from '../interfaces/usuario';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgClass } from '@angular/common';
 import { ServerTotvsService } from '../services/server-totvs.service';
-<<<<<<< HEAD
-=======
 import { environment } from '../environments/environment';
->>>>>>> 62d2cd3 (Backup13032026)
 
 @Component({
     selector: 'app-monitor-processos',
@@ -44,11 +41,7 @@ colunas!:PoTableColumn[]
 lista!:any[]
 labelContador:string[]=[]
 alturaGrid:number=window.innerHeight - 255
-<<<<<<< HEAD
-
-=======
 versao:string=''
->>>>>>> 62d2cd3 (Backup13032026)
 
 //--- Actions
 readonly acoes: PoTableAction[] = [
@@ -75,17 +68,10 @@ readonly acoes: PoTableAction[] = [
 ngOnInit(): void {
 
   this.mostrarLabel=false
-<<<<<<< HEAD
-  
-
-  this.colunas = this.srvTotvs.obterColunasMonitor()
-  this.srvTotvs.EmitirParametros({ tituloTela: 'EMPRÉSTIMOS - MONITOR ACOMPANHAMENTO DE PROCESSOS', estabInfo:undefined});
-=======
   this.versao = environment.versao
 
   this.colunas = this.srvTotvs.obterColunasMonitor()
   this.srvTotvs.EmitirParametros({ tituloTela: this.versao + ' - EMPRÉSTIMOS - MONITOR ACOMPANHAMENTO DE PROCESSOS', estabInfo:undefined});
->>>>>>> 62d2cd3 (Backup13032026)
 
   let monitor = this.srvTotvs.ObterMonitor()
   if (monitor !== undefined)
@@ -209,11 +195,7 @@ onReprocessarNotas(obj:any) {
 
       this.srvTotvs.ReprocessarCalculo(params).subscribe({
         next: (response: any) => {
-<<<<<<< HEAD
-          console.log(response)
-=======
           //console.log(response)
->>>>>>> 62d2cd3 (Backup13032026)
           this.srvNotification.success('Execução do cálculo realizada com sucesso ! Processo RPW: ' + response.rpw)
           this.onListar()
           this.loadTela = false;
@@ -247,11 +229,7 @@ onReprocessarErros() {
 
       this.srvTotvs.ReprocessarErros(params).subscribe({
         next: (response: any) => {
-<<<<<<< HEAD
-          console.log(response)
-=======
           //console.log(response)
->>>>>>> 62d2cd3 (Backup13032026)
           this.srvNotification.success('Reprocessamento executado com sucesso !')
           this.onListar()
           this.loadTela = false;
